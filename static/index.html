@@ -12,16 +12,95 @@
     <div class="background-effects">
         <div class="glow-orb orb-1"></div>
         <div class="glow-orb orb-2"></div>
+        <div class="glow-orb orb-3"></div>
     </div>
 
-    <main class="container">
-        <header class="app-header">
-            <div class="logo">
-                <i class="fa-solid fa-microchip"></i>
-                <h1>DefectDetector<span>Pro</span></h1>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-microchip"></i>
+            <span>DefectDetector<span class="accent">Pro</span></span>
+        </div>
+        <div class="nav-links">
+            <a href="#features">Features</a>
+            <a href="#how-it-works">How it Works</a>
+            <button class="primary-btn small-btn" onclick="scrollToUpload()">Start Inspection</button>
+        </div>
+    </nav>
+
+    <!-- Main Landing View (Visible initially) -->
+    <div id="landingView">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <div class="badge">AI-Powered Visual Inspection</div>
+                <h1>Manufacturing Quality Control, <span class="gradient-text">Automated.</span></h1>
+                <p class="hero-subtitle">
+                    Upload images of your manufactured parts and instantly detect scratches, dents, 
+                    cracks, and assembly errors using our state-of-the-art Deep Learning models.
+                </p>
+                <div class="hero-actions">
+                    <button class="primary-btn large-btn" onclick="scrollToUpload()">
+                        <i class="fa-solid fa-rocket"></i> Launch Tool
+                    </button>
+                    <a href="#features" class="secondary-btn large-btn">Learn More</a>
+                </div>
             </div>
-            <p class="subtitle">AI-powered multi-frame visual inspection for manufacturing.</p>
-        </header>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features-section">
+            <h2 class="section-title">Why choose DefectDetector?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-layer-group"></i></div>
+                    <h3>Multi-Frame Analysis</h3>
+                    <p>Drag and drop dozens of images at once. Process multiple angles of a single part simultaneously.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-eye"></i></div>
+                    <h3>AI Explainability</h3>
+                    <p>Don't just trust the AI—verify it. Hover over results to see interactive Grad-CAM heatmaps showing exactly what the AI saw.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-bolt"></i></div>
+                    <h3>Blazing Fast</h3>
+                    <p>Powered by a highly optimized FastAPI backend running PyTorch for near-instantaneous inference.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section id="how-it-works" class="how-it-works-section">
+            <h2 class="section-title">How it works</h2>
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h4>Upload Images</h4>
+                    <p>Drop your product images into the upload zone.</p>
+                </div>
+                <div class="step-connector"></div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h4>AI Processing</h4>
+                    <p>Our ResNet model analyzes the images for anomalies.</p>
+                </div>
+                <div class="step-connector"></div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h4>Review Results</h4>
+                    <p>Get instant PASS/DEFECT verdicts and heatmap overlays.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Application Tool View -->
+    <main class="container" id="toolView">
+        <div class="tool-header">
+            <h2>Inspection Dashboard</h2>
+            <p>Upload parts for analysis</p>
+        </div>
 
         <section class="upload-section">
             <div class="drop-zone" id="dropZone">
@@ -62,6 +141,11 @@
             </div>
         </section>
     </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+        <p>DefectDetector Pro MVP &copy; 2026 | Built for Advanced Manufacturing</p>
+    </footer>
 
     <script src="/static/script.js"></script>
 </body>

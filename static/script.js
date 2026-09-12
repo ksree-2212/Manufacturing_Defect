@@ -1,3 +1,23 @@
+// --- Navigation Logic ---
+function scrollToUpload() {
+    const landingView = document.getElementById('landingView');
+    const toolView = document.getElementById('toolView');
+    
+    // Hide landing view elements (optional: fade them out)
+    landingView.style.opacity = '0';
+    setTimeout(() => {
+        landingView.style.display = 'none';
+        
+        // Show tool view
+        toolView.style.display = 'block';
+        setTimeout(() => {
+            toolView.style.opacity = '1';
+            // Scroll to it
+            toolView.scrollIntoView({ behavior: 'smooth' });
+        }, 50);
+    }, 400);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const dropZone = document.getElementById('dropZone');
     const fileInput = document.getElementById('fileInput');
