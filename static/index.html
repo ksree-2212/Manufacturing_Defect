@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Defect Detection Pro</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="background-effects">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+    </div>
+
+    <main class="container">
+        <header class="app-header">
+            <div class="logo">
+                <i class="fa-solid fa-microchip"></i>
+                <h1>DefectDetector<span>Pro</span></h1>
+            </div>
+            <p class="subtitle">AI-powered multi-frame visual inspection for manufacturing.</p>
+        </header>
+
+        <section class="upload-section">
+            <div class="drop-zone" id="dropZone">
+                <i class="fa-solid fa-cloud-arrow-up drop-icon"></i>
+                <h3>Drag & Drop Parts Images</h3>
+                <p>or click to browse from your device</p>
+                <span class="support-text">Supports JPG, PNG, BMP (Multiple files allowed)</span>
+                <input type="file" id="fileInput" multiple accept="image/*" class="file-input">
+            </div>
+        </section>
+
+        <section class="controls-section" id="controlsSection" style="display: none;">
+            <div class="selected-files-info">
+                <span id="fileCount">0 files selected</span>
+            </div>
+            <button class="primary-btn" id="analyzeBtn">
+                <i class="fa-solid fa-bolt"></i> Run AI Analysis
+            </button>
+            <button class="secondary-btn" id="clearBtn">Clear</button>
+        </section>
+
+        <section class="loading-state" id="loadingState" style="display: none;">
+            <div class="spinner"></div>
+            <p>Analyzing frames with PyTorch ResNet...</p>
+        </section>
+
+        <section class="results-section" id="resultsSection" style="display: none;">
+            <header class="results-header">
+                <h2>Analysis Results</h2>
+                <div class="summary-stats">
+                    <span class="stat-badge pass" id="passCount">0 Pass</span>
+                    <span class="stat-badge fail" id="failCount">0 Defect</span>
+                </div>
+            </header>
+            
+            <div class="results-grid" id="resultsGrid">
+                <!-- Results cards will be injected here via JS -->
+            </div>
+        </section>
+    </main>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
